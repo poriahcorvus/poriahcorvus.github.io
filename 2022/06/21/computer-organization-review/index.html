@@ -10,17 +10,17 @@ document.addEventListener("pjax:success", initScrollReveal);
 });</script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#e5c2be"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     window.Yun = {}
     window.CONFIG = {"hostname":"poriahcorvus.github.io","root":"/","title":["poria","的","废","纸","篓"],"version":"1.8.11","mode":"light","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"fireworks":{"colors":["239,214,209","196,212,202","222,233,235"]},"vendors":{"darken":"https://cdn.jsdelivr.net/npm/darken@1.5.0"}};
-  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><script src="//at.alicdn.com/t/font_3268844_6q05yk028wt.js" async></script><meta name="description" content="水平型微指令与垂直型微指令的比较 水平型微指令并行操作能力强，指令高效，快速，灵活，垂直型微指令则较差。 水平型微指令执行一条指令时间短，垂直型微指令执行时间长。 由水平型微指令解释指令的微程序，有微指令字较长而微程序短的特点。垂直型微指令则相反。 水平型微指令用户难以掌握，而垂直型微指令与指令比较相似，相对来说，比较容易掌握。    RISC精简指令计算机。 特点：指令条数少；指令长度固">
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><script src="//at.alicdn.com/t/font_3268844_6q05yk028wt.js" async></script><meta name="description" content="没人理解计算机。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="期末预习-计算机组成原理">
 <meta property="og:url" content="https://poriahcorvus.github.io/2022/06/21/computer-organization-review/index.html">
 <meta property="og:site_name" content="废纸篓">
-<meta property="og:description" content="水平型微指令与垂直型微指令的比较 水平型微指令并行操作能力强，指令高效，快速，灵活，垂直型微指令则较差。 水平型微指令执行一条指令时间短，垂直型微指令执行时间长。 由水平型微指令解释指令的微程序，有微指令字较长而微程序短的特点。垂直型微指令则相反。 水平型微指令用户难以掌握，而垂直型微指令与指令比较相似，相对来说，比较容易掌握。    RISC精简指令计算机。 特点：指令条数少；指令长度固">
+<meta property="og:description" content="没人理解计算机。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/computer-organization-review/zhiling.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/computer-organization-review/guigehua.jpg">
 <meta property="article:published_time" content="2022-06-21T02:48:43.797Z">
-<meta property="article:modified_time" content="2022-06-21T02:54:56.232Z">
+<meta property="article:modified_time" content="2022-06-21T03:02:19.587Z">
 <meta property="article:author" content="poria_hua">
 <meta property="article:tag" content="计算机组成原理">
 <meta name="twitter:card" content="summary">
@@ -54,7 +54,9 @@ document.addEventListener("pjax:success", initScrollReveal);
 
 
 
-<h3 id="指令周期"><a href="#指令周期" class="headerlink" title="指令周期"></a>指令周期</h3><h3 id="CPU从主存中取出二进制代码"><a href="#CPU从主存中取出二进制代码" class="headerlink" title="CPU从主存中取出二进制代码"></a>CPU从主存中取出二进制代码</h3><p>从时间来说：取指令事件发生在“取指周期”；数据事件发生在“执行周期”</p>
+<h3 id="指令周期"><a href="#指令周期" class="headerlink" title="指令周期"></a>指令周期</h3><br>
+
+<h3 id="CPU从主存中取出二进制代码"><a href="#CPU从主存中取出二进制代码" class="headerlink" title="CPU从主存中取出二进制代码"></a>CPU从主存中取出二进制代码</h3><p>从时间来说：取指令事件发生在“取指周期”；数据事件发生在“执行周期”</p>
 <p>从空间来说：取出的代码是指令，一定送往指令寄存器（控制器）；取出的代码是数据，一定送往数据寄存器（运算器）</p>
 <br>
 
@@ -81,7 +83,9 @@ document.addEventListener("pjax:success", initScrollReveal);
 <p><strong>程序状态字寄存器PSW</strong>：表征当前运算的状态及程序的工作方式</p>
 <br>
 
-<h3 id="补码运算"><a href="#补码运算" class="headerlink" title="补码运算"></a>补码运算</h3><h3 id="★cache和主存"><a href="#★cache和主存" class="headerlink" title="★cache和主存"></a>★cache和主存</h3><p>cache的命中率 $h &#x3D; \frac{访问cache的次数}{访问cache和主存的总次数}$</p>
+<h3 id="补码运算"><a href="#补码运算" class="headerlink" title="补码运算"></a>补码运算</h3><br>
+
+<h3 id="★cache和主存"><a href="#★cache和主存" class="headerlink" title="★cache和主存"></a>★cache和主存</h3><p>cache的命中率 $h &#x3D; \frac{访问cache的次数}{访问cache和主存的总次数}$</p>
 <p>主存系统的效率 $e &#x3D; \frac{访问cache的时间}{平均访问时间}$</p>
 <p>设访问cache的时间为$t_c$，访问主存的时间为$t_m$，则$e &#x3D; \frac{t_c}{h × t_c + (1-h) ×t_m}$</p>
 <blockquote>
@@ -152,6 +156,8 @@ document.addEventListener("pjax:success", initScrollReveal);
 <td></td>
 </tr>
 </tbody></table>
+<br>
+
 <h3 id="★磁盘存储器"><a href="#★磁盘存储器" class="headerlink" title="★磁盘存储器"></a>★磁盘存储器</h3><p>$磁盘存取时间 &#x3D; 平均查找时间 + 平均等待时间$        <code>平均等待时间记得除以2</code></p>
 <p>$磁盘容量 &#x3D; 记录面数量 × 磁道数量 × 每道信息量$</p>
 <p>$最高位密度（最小半径），最低位密度（最大半径）$</p>
@@ -185,7 +191,7 @@ document.addEventListener("pjax:success", initScrollReveal);
 <p>尾数隐含最高位1</p>
 <br>
 
-<h3 id="结果规格化"><a href="#结果规格化" class="headerlink" title="结果规格化"></a>结果规格化</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/starter_____/article/details/95926232">浮点数的表示 —— 基本格式、规格化、表示范围_</a></p>
+<h3 id="结果规格化"><a href="#结果规格化" class="headerlink" title="结果规格化"></a>结果规格化</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/starter_____/article/details/95926232">浮点数的表示 —— 基本格式、规格化、表示范围</a></p>
 <p>规格化：最高位与符号位相反</p>
 <p>先判断结果是不是规格化，如果不是则执行如下操作</p>
 <ol>
