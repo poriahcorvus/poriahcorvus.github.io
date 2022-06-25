@@ -22,9 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
 <meta property="og:description" content="没人理解计算机。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/computer-organization-review/zhiling.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/computer-organization-review/xunzhi.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/computer-organization-review/guigehua.jpg">
 <meta property="article:published_time" content="2022-06-21T02:48:43.797Z">
-<meta property="article:modified_time" content="2022-06-25T13:46:05.409Z">
+<meta property="article:modified_time" content="2022-06-25T15:15:29.784Z">
 <meta property="article:author" content="poria_hua">
 <meta property="article:tag" content="计算机组成原理">
 <meta name="twitter:card" content="summary">
@@ -44,12 +45,7 @@ IconifyProviders = {
     // Wait for 1 second before switching API hosts
     rotate: 1000,
   },
-};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="poria_hua"><img width="96" loading="lazy" src="/img/avatar.jpg" alt="poria_hua"></a><div class="site-author-name"><a href="/about/">poria_hua</a></div><span class="site-name">废纸篓</span><sub class="site-subtitle">祝愿我远走高飞</sub><div class="site-description"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">10</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">3</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">9</span></a></div><a class="site-state-item hty-icon-button" href="/about" title="关于"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-clipboard-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/poriahcorvus" title="GitHub" target="_blank" style="color:#525252"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.tapechat.net/uu/poriah44/SOJKFAZ0" title="Tape" target="_blank" style="color:#525252"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-questionnaire-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="他们" style="color:#525252"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-a-18-Insight"></use></svg></a></div></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B0%B4%E5%B9%B3%E5%9E%8B%E5%BE%AE%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%9E%82%E7%9B%B4%E5%9E%8B%E5%BE%AE%E6%8C%87%E4%BB%A4%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">1.</span> <span class="toc-text">水平型微指令与垂直型微指令的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RISC"><span class="toc-number">2.</span> <span class="toc-text">RISC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E5%B8%83%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">硬布线控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PCI%E6%80%BB%E7%BA%BF"><span class="toc-number">4.</span> <span class="toc-text">PCI总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F"><span class="toc-number">5.</span> <span class="toc-text">指令周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU%E4%BB%8E%E4%B8%BB%E5%AD%98%E4%B8%AD%E5%8F%96%E5%87%BA%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">CPU从主存中取出二进制代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81"><span class="toc-number">7.</span> <span class="toc-text">原码、补码、反码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E4%B9%98%E9%99%A4%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text">原码、补码乘除法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85CRT"><span class="toc-number">9.</span> <span class="toc-text">★CRT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">10.</span> <span class="toc-text">CPU寄存器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81%E8%BF%90%E7%AE%97"><span class="toc-number">11.</span> <span class="toc-text">补码运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85cache%E5%92%8C%E4%B8%BB%E5%AD%98"><span class="toc-number">12.</span> <span class="toc-text">★cache和主存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85%E5%88%86%E6%9E%90%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F%E5%8F%8A%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-number">13.</span> <span class="toc-text">★分析指令格式及寻址方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">14.</span> <span class="toc-text">★磁盘存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85IEEE754"><span class="toc-number">15.</span> <span class="toc-text">★IEEE754</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E8%A7%84%E6%A0%BC%E5%8C%96"><span class="toc-number">16.</span> <span class="toc-text">结果规格化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85CPU%E5%9C%B0%E5%9D%80%E7%BA%BF%E3%80%81%E6%95%B0%E6%8D%AE%E7%BA%BF"><span class="toc-number">17.</span> <span class="toc-text">★CPU地址线、数据线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85cache-%E4%B8%BB%E5%AD%98%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84"><span class="toc-number">18.</span> <span class="toc-text">★cache-主存地址映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="toc-number">19.</span> <span class="toc-text">★虚拟内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%AF%E8%83%BD%E4%B8%8D%E9%87%8D%E8%A6%81%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">20.</span> <span class="toc-text">一些可能不重要的概念</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#e5c2be;"><link itemprop="mainEntityOfPage" href="https://poriahcorvus.github.io/2022/06/21/computer-organization-review/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="poria_hua"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="废纸篓"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">期末预习-计算机组成原理</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2022-06-21 10:48:43" itemprop="dateCreated datePublished" datetime="2022-06-21T10:48:43+08:00">2022-06-21</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-2-line"></span></span> <time title="修改时间：2022-06-25 21:46:05" itemprop="dateModified" datetime="2022-06-25T21:46:05+08:00">2022-06-25</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E7%AC%94%E8%AE%B0/" style="--text-color:dimgray" itemprop="url" rel="index"><span itemprop="text">笔记</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">计算机组成原理</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><br>
-
-<div  class = "Gray">
-> content 你好啊
-</div>
-
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="poria_hua"><img width="96" loading="lazy" src="/img/avatar.jpg" alt="poria_hua"></a><div class="site-author-name"><a href="/about/">poria_hua</a></div><span class="site-name">废纸篓</span><sub class="site-subtitle">祝愿我远走高飞</sub><div class="site-description"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">10</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">3</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">9</span></a></div><a class="site-state-item hty-icon-button" href="/about" title="关于"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-clipboard-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/poriahcorvus" title="GitHub" target="_blank" style="color:#525252"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.tapechat.net/uu/poriah44/SOJKFAZ0" title="Tape" target="_blank" style="color:#525252"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-questionnaire-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="他们" style="color:#525252"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-a-18-Insight"></use></svg></a></div></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B0%B4%E5%B9%B3%E5%9E%8B%E5%BE%AE%E6%8C%87%E4%BB%A4%E4%B8%8E%E5%9E%82%E7%9B%B4%E5%9E%8B%E5%BE%AE%E6%8C%87%E4%BB%A4%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">1.</span> <span class="toc-text">水平型微指令与垂直型微指令的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RISC"><span class="toc-number">2.</span> <span class="toc-text">RISC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E5%B8%83%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">硬布线控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PCI%E6%80%BB%E7%BA%BF"><span class="toc-number">4.</span> <span class="toc-text">PCI总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F"><span class="toc-number">5.</span> <span class="toc-text">指令周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU%E4%BB%8E%E4%B8%BB%E5%AD%98%E4%B8%AD%E5%8F%96%E5%87%BA%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">CPU从主存中取出二进制代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81"><span class="toc-number">7.</span> <span class="toc-text">原码、补码、反码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E4%B9%98%E9%99%A4%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text">原码、补码乘除法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85CRT"><span class="toc-number">9.</span> <span class="toc-text">★CRT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">10.</span> <span class="toc-text">CPU寄存器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81%E8%BF%90%E7%AE%97"><span class="toc-number">11.</span> <span class="toc-text">补码运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85cache%E5%92%8C%E4%B8%BB%E5%AD%98"><span class="toc-number">12.</span> <span class="toc-text">★cache和主存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85%E5%88%86%E6%9E%90%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F%E5%8F%8A%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-number">13.</span> <span class="toc-text">★分析指令格式及寻址方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">14.</span> <span class="toc-text">★磁盘存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85IEEE754"><span class="toc-number">15.</span> <span class="toc-text">★IEEE754</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E8%A7%84%E6%A0%BC%E5%8C%96"><span class="toc-number">16.</span> <span class="toc-text">结果规格化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85CPU%E5%9C%B0%E5%9D%80%E7%BA%BF%E3%80%81%E6%95%B0%E6%8D%AE%E7%BA%BF"><span class="toc-number">17.</span> <span class="toc-text">★CPU地址线、数据线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85cache-%E4%B8%BB%E5%AD%98%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84"><span class="toc-number">18.</span> <span class="toc-text">★cache-主存地址映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="toc-number">19.</span> <span class="toc-text">★虚拟内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%AF%E8%83%BD%E4%B8%8D%E9%87%8D%E8%A6%81%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">20.</span> <span class="toc-text">一些可能不重要的概念</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#e5c2be;"><link itemprop="mainEntityOfPage" href="https://poriahcorvus.github.io/2022/06/21/computer-organization-review/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="poria_hua"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="废纸篓"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">期末预习-计算机组成原理</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2022-06-21 10:48:43" itemprop="dateCreated datePublished" datetime="2022-06-21T10:48:43+08:00">2022-06-21</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-2-line"></span></span> <time title="修改时间：2022-06-25 23:15:29" itemprop="dateModified" datetime="2022-06-25T23:15:29+08:00">2022-06-25</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E7%AC%94%E8%AE%B0/" style="--text-color:dimgray" itemprop="url" rel="index"><span itemprop="text">笔记</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">计算机组成原理</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><br>
 
 <h3 id="水平型微指令与垂直型微指令的比较"><a href="#水平型微指令与垂直型微指令的比较" class="headerlink" title="水平型微指令与垂直型微指令的比较"></a>水平型微指令与垂直型微指令的比较</h3><ol>
 <li>水平型微指令并行操作能力强，指令高效，快速，灵活，垂直型微指令则较差。</li>
@@ -79,10 +75,14 @@ IconifyProviders = {
 <br>
 
 <h3 id="原码、补码、反码"><a href="#原码、补码、反码" class="headerlink" title="原码、补码、反码"></a>原码、补码、反码</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html">原码补码反码及真值</a></p>
-<blockquote>
-<p>原码→真值，符号位直接变为+-</p>
-<p>补码→真值，符号位要算作某个数</p>
-</blockquote>
+<div  style='color: rgba(167,201,185,1);
+    --blockquote-border-left-color: rgba(167,201,185,1);
+    --blockquote-bg-color: rgba(167,201,185,0.1);'>
+    > 原码→真值，符号位直接变为+-
+    <br>
+    > 补码→真值，符号位要算作某个数
+</div>
+
 <br>
 
 <h3 id="原码、补码乘除法"><a href="#原码、补码乘除法" class="headerlink" title="原码、补码乘除法"></a>原码、补码乘除法</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45037155/article/details/123432898">看一眼就懂了</a></p>
@@ -106,9 +106,12 @@ IconifyProviders = {
 <h3 id="★cache和主存"><a href="#★cache和主存" class="headerlink" title="★cache和主存"></a>★cache和主存</h3><p>cache的命中率 $h &#x3D; \frac{访问cache的次数}{访问cache和主存的总次数}$</p>
 <p>主存系统的效率 $e &#x3D; \frac{访问cache的时间}{平均访问时间}$</p>
 <p>设访问cache的时间为$t_c$，访问主存的时间为$t_m$，则$e &#x3D; \frac{t_c}{h × t_c + (1-h) ×t_m}$</p>
-<blockquote>
-<p>注意：$t_c$和$t_m$不是存取周期，只能利用存取周期求解出$t_C$和$t_m$之间的倍数关系，然后设未知数进行运算</p>
-</blockquote>
+<div  style='color: rgba(167,201,185,1);
+    --blockquote-border-left-color: rgba(167,201,185,1);
+    --blockquote-bg-color: rgba(167,201,185,0.1);'>
+    > 注意：两个时间都不是存取周期，只能利用存取周期求解出两个访问时间之间的倍数关系，然后设未知数进行运算
+</div>
+
 <p>主存和cache同时访问，命中则访问cache，不命中则访问主存</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zmjames2000/article/details/88374699">例题</a></p>
 <br>
@@ -126,54 +129,7 @@ IconifyProviders = {
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/b_x_p/article/details/85223641">更全面的指令系统知识点</a></p>
 <br>
 
-<table>
-<thead>
-<tr>
-<th>寻址方式</th>
-<th>形式地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>立即寻址</td>
-<td>立即数</td>
-</tr>
-<tr>
-<td>直接寻址</td>
-<td>$EA &#x3D; A$</td>
-</tr>
-<tr>
-<td>间接寻址</td>
-<td>$EA &#x3D; (A)$</td>
-</tr>
-<tr>
-<td>寄存器寻址</td>
-<td>$EA &#x3D; R_i$</td>
-</tr>
-<tr>
-<td>寄存器间接寻址</td>
-<td>$EA &#x3D; (R_i)$</td>
-</tr>
-<tr>
-<td>隐含寻址</td>
-<td></td>
-</tr>
-<tr>
-<td>基址寻址</td>
-<td>$EA &#x3D; (BR)+A$</td>
-</tr>
-<tr>
-<td>变址寻址</td>
-<td>$EA &#x3D; (IX)+A$</td>
-</tr>
-<tr>
-<td>相对寻址</td>
-<td>$EA &#x3D; (PC)+A$</td>
-</tr>
-<tr>
-<td>堆栈寻址</td>
-<td></td>
-</tr>
-</tbody></table>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/computer-organization-review/xunzhi.jpg" loading="lazy"></p>
 <br>
 
 <h3 id="★磁盘存储器"><a href="#★磁盘存储器" class="headerlink" title="★磁盘存储器"></a>★磁盘存储器</h3><p>$磁盘存取时间 &#x3D; 平均查找时间 + 平均等待时间$        <code>平均等待时间记得除以2</code></p>
@@ -186,24 +142,7 @@ IconifyProviders = {
 
 
 
-<h3 id="★IEEE754"><a href="#★IEEE754" class="headerlink" title="★IEEE754"></a>★IEEE754</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>数符位数</th>
-<th>阶码位数</th>
-<th>尾数位数</th>
-<th>偏置值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>float</td>
-<td>1</td>
-<td>8</td>
-<td>23</td>
-<td>127</td>
-</tr>
-</tbody></table>
+<h3 id="★IEEE754"><a href="#★IEEE754" class="headerlink" title="★IEEE754"></a>★IEEE754</h3><p>短浮点数：数符位数：1        阶码位数：8        尾数位数：23        偏置值：127</p>
 <p>规格化短浮点数的真值为$(-1)^s ×1.M×2^{E-127}$</p>
 <p>阶码部分用移码表示，移码E &#x3D; 真值+偏置值</p>
 <p>尾数隐含最高位1</p>
@@ -217,9 +156,12 @@ IconifyProviders = {
 <li>若结果的符号位为10或01，则进行右规，即尾数右移或小数点左移，阶码在原有基础上加上移动位数</li>
 </ol>
 <p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/computer-organization-review/guigehua.jpg" loading="lazy"></p>
-<blockquote>
-<p>观察符号位，溢出则算术右移，不溢出则算数左移</p>
-</blockquote>
+<div  style='color: rgba(167,201,185,1);
+    --blockquote-border-left-color: rgba(167,201,185,1);
+    --blockquote-bg-color: rgba(167,201,185,0.1);'>
+    > 观察符号位，溢出则算术右移，不溢出则算数左移
+</div>
+
 <br>
 
 <h3 id="★CPU地址线、数据线"><a href="#★CPU地址线、数据线" class="headerlink" title="★CPU地址线、数据线"></a>★CPU地址线、数据线</h3><p>数据线条数 &#x3D; 字长位数</p>
@@ -240,24 +182,54 @@ IconifyProviders = {
 
 
 
-<h3 id="一些可能不重要的概念"><a href="#一些可能不重要的概念" class="headerlink" title="一些可能不重要的概念"></a>一些可能不重要的概念</h3><blockquote>
-<p>主存储器和CPU之间增加cache的目的是解决CPU和主存之间的速度匹配问题。</p>
-</blockquote>
-<blockquote>
-<p>单地址指令中为了完成两个数的算术运算，除地址码指明的一个操作数外，另一个常需采用隐含寻址方式。</p>
-</blockquote>
-<blockquote>
-<p>广泛使用的SRAM和DRAM都是半导体随机读写存储器，前者的速度比后者快，但存储容量不如后者高。</p>
-</blockquote>
-<blockquote>
-<p>形成指令地址的方式：指令寻址方式、顺序寻址方式、跳跃寻址方式。</p>
-</blockquote>
-<blockquote>
-<p>微型机的标准总线从16位的ISA总线，发展到32位的EISA总线和VESA总线，又进一步发展到64位的PCI总线。</p>
-</blockquote>
-<blockquote>
-<p>为了实现运算器的高速性，采用先行进位、阵列乘除法等并行技术。</p>
-</blockquote>
+<h3 id="一些可能不重要的概念"><a href="#一些可能不重要的概念" class="headerlink" title="一些可能不重要的概念"></a>一些可能不重要的概念</h3><div  style='color: rgba(167,201,185,1);
+    --blockquote-border-left-color: rgba(167,201,185,1);
+    --blockquote-bg-color: rgba(167,201,185,0.1);'>
+    > 主存储器和CPU之间增加cache的目的是解决CPU和主存之间的速度匹配问题。
+    <br>
+    > 单地址指令中为了完成两个数的算术运算，除地址码指明的一个操作数外，另一个常需采用隐含寻址方式。
+    <br>
+    > 广泛使用的SRAM和DRAM都是半导体随机读写存储器，前者的速度比后者快，但存储容量不如后者高。
+    <br>
+    > 形成指令地址的方式：指令寻址方式、顺序寻址方式、跳跃寻址方式。
+    <br>
+    > 微型机的标准总线从16位的ISA总线，发展到32位的EISA总线和VESA总线，又进一步发展到64位的PCI总线。
+    <br>
+    > 为了实现运算器的高速性，采用先行进位、阵列乘除法等并行技术。
+    <br>
+    > 位操作类指令的功能是对CPU内部通用寄存器或主存某一单元任一位进行状态检测或强置。
+    <br>
+    > 操作控制器的功能是从主存取出指令，完成指令操作码译码，并产生有关的操作控制信号，以解释执行该指令。
+    <br>
+    > 3.5英寸软盘记录方式采用双面高密度。
+    <br>
+    > 通道对CPU的请求形式是中断。
+    <br>
+    > 一个较完善的指令系统应包含数据传送类指令、算术运算类指令、逻辑运算类指令、程序控制类指令、I/O类指令、字符串类指令、系统控制类指令。
+    <br>
+    > 并行处理技术已经成为计算机发展的主流。它可贯穿于信息加工的各个步骤和阶段概括起来，主要有三种形式：时间并行、空间并行、时间+空间并行。
+    <br>
+    > 为了解决多个主设备同时竞争总线，控制权必须具有总线仲裁部件。
+    <br>
+    > 磁表面存储器的主要技术指标有存储密度、存储容量、平均存取时间和数据传输速率。
+    <br>
+    > 一个完整的计算机系统应包括硬件和软件。软件又分为系统软件和应用软件两大类。
+    <br>
+    > 计算机硬件能够直接执行的语言是机器语言。
+    <br>
+    > 计算机系统中采用补码运算的目的是为了简化计算机设计。
+    <br>
+    > 在定点加减运算器中，无论采用双符号位还是单符号位，必须有溢出判断，它一般用异或门来实现。
+    <br>
+    > 在程序执行过程中，cache与主存的地址映射是由硬件自动完成的。
+    <br>
+    > 程序计数器PC用来存放当前指令的地址，每当执行完一条指令后，通常由程序计数器提供后继指令地址，其位数和主存地址寄存器MAR位数相同。
+    <br>
+    > 总线主设备指的是可申请并能获得总线使用权的设备。
+</div>
+
+
+
 <br>
 
 </div></section><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>poria_hua</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://poriahcorvus.github.io/2022/06/21/computer-organization-review/" title="期末预习-计算机组成原理">https://poriahcorvus.github.io/2022/06/21/computer-organization-review/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/05/04/silent-love/" rel="next" title="做戏"><span class="post-nav-text">做戏</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> poria_hua</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.1.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.4</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#e5c2be" stroke-width="2" stroke-linecap="round"></circle></svg></a></body></html>
