@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#e5c2be"><meta name="author" content="poria_hua"><meta name="copyright" content="poria_hua"><meta name="generator" content="Hexo 6.2.0"><meta name="theme" content="hexo-theme-yun"><title>编译原理速成 | 废纸篓</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.3.3/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script defer src="https://fastly.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script><link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.css"><script defer src="https://fastly.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"></script><script type="module">import { renderKatex } from '/js/utils.js'
+document.addEventListener("DOMContentLoaded", () => {
+  renderKatex({
+    ...{},
+    ...true?.options,
+  });
+});</script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#e5c2be"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"poriahcorvus.github.io","root":"/","title":["poria","的","废","纸","篓"],"version":"1.10.4","mode":"light","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"fireworks":{"colors":["239,214,209","196,212,202","222,233,235"]},"vendors":{"darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><script src="//at.alicdn.com/t/font_3268844_6q05yk028wt.js" async></script><meta name="description" content="进行一些混子速成（基于题目的速成）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理速成">
+<meta property="og:url" content="https://poriahcorvus.github.io/2022/11/05/bianyiyuanli/index.html">
+<meta property="og:site_name" content="废纸篓">
+<meta property="og:description" content="进行一些混子速成（基于题目的速成）。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152216009-1668254170224-1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152459657-1668254383701-52.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152545231.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152657496-1668254398659-57.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152805969.png">
+<meta property="og:image" content="https://poriahcorvus.github.io/.https:/cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152828177-1668254411884-62.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152946737.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152959418.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025160706084.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025161615499-1668255101955-1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025161931817.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221105133927592.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025163807497.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025164100654-1668254431992-65.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025164353150.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025164515132.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025164532265.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025164607645-1668254362457-46.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025164806419.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025165235091-1668254368354-48.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221031102954681.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221031110110925.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221031110224781.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221105091054735.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221105155437918.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221105160716353.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221105160730824.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221106130946228.png">
+<meta property="article:published_time" content="2022-11-05T01:26:28.395Z">
+<meta property="article:modified_time" content="2022-11-12T12:12:29.913Z">
+<meta property="article:author" content="poria_hua">
+<meta property="article:tag" content="编译原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152216009-1668254170224-1.png"><script>(function() {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="poria_hua"><img width="96" loading="lazy" src="/img/avatar.jpg" alt="poria_hua"></a><div class="site-author-name"><a href="/about/">poria_hua</a></div><span class="site-name">废纸篓</span><sub class="site-subtitle">祝愿我远走高飞</sub><div class="site-description"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">9</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">3</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">11</span></a></div><a class="site-state-item hty-icon-button" href="/about" title="关于"><span class="site-state-item-icon"><span class="icon iconify" data-icon="typcn:clipboard"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/poriahcorvus" title="GitHub" target="_blank" style="color:#525252"><span class="icon iconify" data-icon="typcn:social-github"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.tapechat.net/uu/poriah44/SOJKFAZ0" title="Tape" target="_blank" style="color:#525252"><span class="icon iconify" data-icon="typcn:messages"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="他们" style="color:#525252"><span class="icon iconify" data-icon="typcn:contacts"></span></a></div></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">词法分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">自顶向下分析方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%96%87%E6%B3%95%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.1.1.</span> <span class="toc-text">构造文法的预测分析程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E9%80%92%E5%BD%92%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90"><span class="toc-number">2.1.2.</span> <span class="toc-text">非递归预测分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8%E7%9A%84%E6%9E%84%E9%80%A0"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">预测分析表的构造</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#FIRST-X"><span class="toc-number">2.1.2.1.1.</span> <span class="toc-text">FIRST(X)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#FOLLOW-A"><span class="toc-number">2.1.2.1.2.</span> <span class="toc-text">FOLLOW(A)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-number">2.1.2.1.3.</span> <span class="toc-text">构造预测分析表</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-number">2.1.2.1.4.</span> <span class="toc-text">错误处理</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">预测分析程序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">自底向上分析方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LR"><span class="toc-number">2.2.1.</span> <span class="toc-text">LR</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">分析过程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SLR-1-%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">SLR(1)分析表</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9E%84%E9%80%A0LR-0-%E9%A1%B9%E7%9B%AE%E9%9B%86%E8%A7%84%E8%8C%83%E6%97%8F"><span class="toc-number">2.2.1.2.1.</span> <span class="toc-text">构造LR(0)项目集规范族</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9E%84%E9%80%A0SLR-1-%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-number">2.2.1.2.2.</span> <span class="toc-text">构造SLR(1)分析表</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#LR-1-%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-number">2.2.1.3.</span> <span class="toc-text">LR(1)分析表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#LALR-1-%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-number">2.2.1.4.</span> <span class="toc-text">LALR(1)分析表</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="toc-number">2.2.1.4.1.</span> <span class="toc-text">基本思想</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%96%87%E6%B3%95"><span class="toc-number">2.2.1.5.</span> <span class="toc-text">判断文法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#LR-0"><span class="toc-number">2.2.1.5.1.</span> <span class="toc-text">$LR(0)$</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#SLR-1-%E5%92%8C-LR-1"><span class="toc-number">2.2.1.5.2.</span> <span class="toc-text">$SLR(1)$ 和 $LR(1)$</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#e5c2be;"><link itemprop="mainEntityOfPage" href="https://poriahcorvus.github.io/2022/11/05/bianyiyuanli/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="poria_hua"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="废纸篓"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">编译原理速成</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2022-11-05 09:26:28" itemprop="dateCreated datePublished" datetime="2022-11-05T09:26:28+08:00">2022-11-05</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-2-line"></span></span> <time title="修改时间：2022-11-12 20:12:29" itemprop="dateModified" datetime="2022-11-12T20:12:29+08:00">2022-11-12</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E7%AC%94%E8%AE%B0/" style="--text-color:dimgray" itemprop="url" rel="index"><span itemprop="text">笔记</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">编译原理</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h2 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h2><p>比较简单，不多说了。</p>
+<h2 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h2><h3 id="自顶向下分析方法"><a href="#自顶向下分析方法" class="headerlink" title="自顶向下分析方法"></a>自顶向下分析方法</h3><h4 id="构造文法的预测分析程序"><a href="#构造文法的预测分析程序" class="headerlink" title="构造文法的预测分析程序"></a>构造文法的预测分析程序</h4><p>例题：<img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152216009-1668254170224-1.png" alt="image-20221025152216009" loading="lazy"></p>
+<blockquote>
+<p>改写文法，消除左递归</p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152459657-1668254383701-52.png" alt="image-20221025152459657" loading="lazy"></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152545231.png" alt="image-20221025152545231" loading="lazy"></p>
+<blockquote>
+<p>根据改写后的文法，构造状态转换图</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152657496-1668254398659-57.png" alt="image-20221025152657496" loading="lazy"></p>
+<blockquote>
+<p>化简状态转换图</p>
+</blockquote>
+<p><code>真的很奇妙，不是吗</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152805969.png" alt="image-20221025152805969" loading="lazy"></p>
+<p>同理得</p>
+<p><img src="/.https:/cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152828177-1668254411884-62.png" alt="image-20221025152828177" loading="lazy"></p>
+<blockquote>
+<p>根据化简后的转换图构造程序（注意指针移动）</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152946737.png" alt="image-20221025152946737" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025152959418.png" alt="image-20221025152959418" loading="lazy"></p>
+<h4 id="非递归预测分析"><a href="#非递归预测分析" class="headerlink" title="非递归预测分析"></a>非递归预测分析</h4><h5 id="预测分析表的构造"><a href="#预测分析表的构造" class="headerlink" title="预测分析表的构造"></a>预测分析表的构造</h5><h6 id="FIRST-X"><a href="#FIRST-X" class="headerlink" title="FIRST(X)"></a>FIRST(X)</h6><p>定义：X可以推导出的开头终结符号集合</p>
+<p>构造方法：</p>
+<ol>
+<li><p>$X$为终结符，则$FIRST(X) &#x3D; {X}$</p>
+</li>
+<li><p>$X$为非终结符，且有产生式$X→a…$，其中a为终结符，则$a∈FIRST(X)$</p>
+<p>若有产生式$X→ε$，则$ε∈FIRST(X)$</p>
+</li>
+<li><p>若有产生式$X→Y…$，且Y为非终结符，则将$FIRST(Y)$中的所有非$ε$元素加入$FIRST(X)$</p>
+<p>若有产生式$X→Y_1 Y_2…Y_k$，如果对某个$i$，$FIRST(Y_1),FIRST(Y_2),…,FIRST(Y_{i-1})$都含有$ε$，则把$FIRST(Y_i)$中的所有非$ε$元素加入$FIRST(X)$中</p>
+<p>若所有的$FIRST(Y_i)$均含有$ε$，则将$ε$加入$FIRST(X)$</p>
+</li>
+</ol>
+<h6 id="FOLLOW-A"><a href="#FOLLOW-A" class="headerlink" title="FOLLOW(A)"></a>FOLLOW(A)</h6><p>定义：文法的所有句型中紧跟在A之后出现的终结符号或$组成的集合</p>
+<p>构造方法：</p>
+<ol>
+<li>文法开始符号$S$，$$∈FOLLOW(S)$</li>
+<li>若有产生式$A→αBβ$，则把$FIRST(β)$中的所有非$ε$元素加入$FOLLOW(B)$</li>
+<li>若有产生式$A→αB$，或$A→αBβ$但$ε∈FIRST(β)$，则把$FOLLOW(A)$中的所有元素加入$FOLLOW(B)$</li>
+</ol>
+<h6 id="构造预测分析表"><a href="#构造预测分析表" class="headerlink" title="构造预测分析表"></a>构造预测分析表</h6><p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025160706084.png" alt="image-20221025160706084" loading="lazy"></p>
+<p>如果一个文法的预测分析表不含多重定义的表项，则称该文法为$LL(1)$文法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025161615499-1668255101955-1.png" alt="image-20221025161615499" loading="lazy"></p>
+<p>例：预测分析程序的分析过程</p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025161931817.png" alt="image-20221025161931817" loading="lazy"></p>
+<p>栈中的表达式要倒着写（左边为栈底，右边为栈顶）</p>
+<p>匹配时则将栈顶元素出栈，开始匹配输入表达式中下一个符号</p>
+<h6 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h6><p>对非终结符$A$，终结符号$b∈FOLLOW(A)$，如果表项$M[A,b]$为空，则填入$synch$</p>
+<h5 id="预测分析程序"><a href="#预测分析程序" class="headerlink" title="预测分析程序"></a>预测分析程序</h5><p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221105133927592.png" alt="image-20221105133927592" loading="lazy"></p>
+<br>
+
+<br>
+
+<br>
+
+<h3 id="自底向上分析方法"><a href="#自底向上分析方法" class="headerlink" title="自底向上分析方法"></a>自底向上分析方法</h3><h4 id="LR"><a href="#LR" class="headerlink" title="LR"></a>LR</h4><h5 id="分析过程"><a href="#分析过程" class="headerlink" title="分析过程"></a>分析过程</h5><p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025163807497.png" alt="image-20221025163807497" loading="lazy"></p>
+<h5 id="SLR-1-分析表"><a href="#SLR-1-分析表" class="headerlink" title="SLR(1)分析表"></a>SLR(1)分析表</h5><p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025164100654-1668254431992-65.png" alt="image-20221025164100654" loading="lazy"></p>
+<h6 id="构造LR-0-项目集规范族"><a href="#构造LR-0-项目集规范族" class="headerlink" title="构造LR(0)项目集规范族"></a>构造LR(0)项目集规范族</h6><p>例<img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025164353150.png" alt="image-20221025164353150" loading="lazy"></p>
+<blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025164515132.png" alt="image-20221025164515132" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025164532265.png" alt="image-20221025164532265" loading="lazy"></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025164607645-1668254362457-46.png" alt="image-20221025164607645" loading="lazy"></p>
+<p>依次构造从$I_i$出发的有效项目集，直到没有新的有效项目集出现。</p>
+<p>构造DFA</p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025164806419.png" alt="image-20221025164806419" loading="lazy"></p>
+<h6 id="构造SLR-1-分析表"><a href="#构造SLR-1-分析表" class="headerlink" title="构造SLR(1)分析表"></a>构造SLR(1)分析表</h6><p>LR(0)可能会产生移进-规约冲突或者规约-规约冲突，SLR(1)考察非终结符号的FOLLOW集</p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221025165235091-1668254368354-48.png" alt="image-20221025165235091" loading="lazy"></p>
+<h5 id="LR-1-分析表"><a href="#LR-1-分析表" class="headerlink" title="LR(1)分析表"></a>LR(1)分析表</h5><p><code>书上的概念看不懂，所以直接看例题。</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221031102954681.png" alt="image-20221031102954681" loading="lazy"></p>
+<blockquote>
+<p>首先还是构造拓广文法（这里已经给出）</p>
+<p>构造项目集时要多向后看一位，用逗号隔开写在后面，由某个式子推导出的项目集继承原式子多看一位的符号（？有点啰嗦ww</p>
+<p>展望符计算方法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40147863/article/details/93253171">方法</a></p>
+<p>$FIRST(βa)$ ，其中$β$为原式子该非终结符之后的剩余串，$a$为上个状态的展望符</p>
+<p>然后构造分析表</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221031110110925.png" alt="image-20221031110110925" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221031110224781.png" alt="image-20221031110224781" loading="lazy"></p>
+<h5 id="LALR-1-分析表"><a href="#LALR-1-分析表" class="headerlink" title="LALR(1)分析表"></a>LALR(1)分析表</h5><h6 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h6><p>①合并LR(1)项目集规范族中的同心集，以减少分析表的状态数</p>
+<p>②用项目集的核代替项目集，以减少项目集所需的存储空间</p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221105091054735.png" alt="image-20221105091054735" loading="lazy"></p>
+<h5 id="判断文法"><a href="#判断文法" class="headerlink" title="判断文法"></a>判断文法</h5><h6 id="LR-0"><a href="#LR-0" class="headerlink" title="$LR(0)$"></a>$LR(0)$</h6><p>一个文法是$LR(0)$文法 当且仅当 该文法的每个活前缀的有效项目集中，要么所有的元素都是移进或待约项目，要么只含有唯一的归约项目。</p>
+<h6 id="SLR-1-和-LR-1"><a href="#SLR-1-和-LR-1" class="headerlink" title="$SLR(1)$ 和 $LR(1)$"></a>$SLR(1)$ 和 $LR(1)$</h6><p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221105155437918.png" alt="image-20221105155437918" loading="lazy"></p>
+<blockquote>
+<p><strong>移进-规约冲突</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221105160716353.png" alt="image-20221105160716353" loading="lazy"></p>
+<p><strong>规约-规约冲突</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221105160730824.png" alt="image-20221105160730824" loading="lazy"></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/poriahcorvus/poriahcorvus.github.io/img/bianyiyuanli/image-20221106130946228.png" alt="image-20221106130946228" loading="lazy"></p>
+</div></section></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/11/02/database-review/" rel="next" title="数据库速成"><span class="post-nav-text">数据库速成</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> poria_hua</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.2.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.4</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#e5c2be" stroke-width="2" stroke-linecap="round"></circle></svg></a></body></html>
